@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fly International</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="hero-header">
+            <div class="main-logo">
+                <span class="plane-icon"></span> Fly International
+            </div>
+            <div class="brand-line"></div>
+            <p class="tagline">Intelligence for Global Aviation</p>
+        </header>
+
+        <main class="content-layout">
+            <section class="glass-panel form-section">
+                <div class="panel-header">
+                    <h2>Nueva Consulta</h2>
+                    <p>Complete los datos del itinerario</p>
+                </div>
+                
+                <form id="vueloForm">
+                    <div class="form-group">
+                        <label>Línea Aérea</label>
+                 <select id="aerolinea" required>
+                       <option value="" disabled selected>Seleccione una aerolínea...</option>
+                       <option value="AS">Alaska Airlines Inc.</option>
+                       <option value="G4">Allegiant Air</option>
+                       <option value="AA">American Airlines Inc.</option>
+                       <option value="DL">Delta Air Lines Inc.</option>
+                       <option value="9E">Endeavor Air Inc.</option>
+                       <option value="MQ">Envoy Air</option>
+                       <option value="EV">ExpressJet Airlines LLC</option>
+                       <option value="F9">Frontier Airlines Inc.</option>
+                       <option value="HA">Hawaiian Airlines Inc.</option>
+                       <option value="QX">Horizon Air</option>
+                       <option value="B6">JetBlue Airways</option>
+                       <option value="YV">Mesa Airlines Inc.</option>
+                       <option value="OH">PSA Airlines Inc.</option>
+                       <option value="YX">Republic Airline</option>
+                       <option value="OO">SkyWest Airlines Inc.</option>
+                       <option value="WN">Southwest Airlines Co.</option>
+                       <option value="NK">Spirit Air Lines</option>
+                       <option value="UA">United Air Lines Inc.</option>
+                     </select>
+                    </div>
+
+                    <div class="input-grid">
+                        <div class="form-group">
+                            <label>Origen (IATA)</label>
+                            <input type="text" id="origen" list="aeropuertos" placeholder="Ej: JFK" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Destino (IATA)</label>
+                            <input type="text" id="destino" list="aeropuertos" placeholder="Ej: LAX" required>
+                        </div>
+                    </div>
+
+                    <div class="input-grid">
+                        <div class="form-group">
+                            <label>Fecha de Salida</label>
+                            <input type="date" id="fecha" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Hora Programada</label>
+                            <input type="time" id="hora" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Distancia del Trayecto (millas)</label>
+                        <input type="number" id="distancia" placeholder="Ej: 2475" required>
+                    </div>
+
+                    <button type="submit" class="btn-action" id="btnAnalizar">Ejecutar Análisis</button>
+                </form>
+            </section>
+
+            <section class="glass-panel table-section">
+                <div class="panel-header flex-header">
+                    <h2>Historial de Consultas</h2>
+                    <button class="btn-clear" onclick="limpiarHistorial()">Limpiar</button>
+                </div>
+                
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ruta</th>
+                                <th>Resultado</th>
+                                <th>Precisión</th>
+                                <th>Hora</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logBody">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <datalist id="aeropuertos">
+        <option value="JFK"> <option value="LAX"> <option value="ATL"> <option value="MIA">
+        <option value="ORD"> <option value="DFW"> <option value="SFO"> <option value="LAS">
+        <option value="ABE"> <option value="ABI"> <option value="ABQ"> <option value="ABR">
+        <option value="ABY"> <option value="ACK"> <option value="ACT"> <option value="ACV">
+        </datalist>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
