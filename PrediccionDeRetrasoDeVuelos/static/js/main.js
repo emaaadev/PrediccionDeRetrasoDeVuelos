@@ -18,7 +18,8 @@ form.addEventListener('submit', async (e) => {
         destino: document.getElementById('destino').value.toUpperCase(),
         fecha: document.getElementById('fecha').value,
         hora: document.getElementById('hora').value,
-        distancia: document.getElementById('distancia').value
+        distancia: document.getElementById('distancia').value,
+        cascading_delay: document.getElementById('cascading').checked ? 1 : 0
     };
 
     try {
@@ -28,21 +29,12 @@ form.addEventListener('submit', async (e) => {
             body: JSON.stringify(data)
         });
 
-        const result = await res.json();
-        console.log("Respuesta de Azure:", result);
+        const resultRaw = await res.text();
+        
+        const result = JSON.parse(JSON.parse(resultRaw));
 
         // Extraer la predicción (0 = A Tiempo, 1 = Retrasado)
-        let prediction;
-        if (Array.isArray(result)) {
-            prediction = result[0];
-        } else if (result.result && Array.isArray(result.result)) {
-            prediction = result.result[0];
-        } else {
-            prediction = result; 
-        }
-
-        // Traducir el resultado para el estilo CSS
-        const status = (prediction == 0 || prediction == "0") ? 'a_tiempo' : 'retrasado';
+        const status = (result.retrasado === 0) ? 'a_tiempo' : 'retrasado';
         
         // Simular un porcentaje de confianza basado en el modelo (ej: 95.50%)
         const conf = (94 + Math.random() * 5).toFixed(2);

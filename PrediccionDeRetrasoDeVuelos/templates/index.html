@@ -27,28 +27,27 @@
                 <form id="vueloForm">
                     <div class="form-group">
                         <label>Línea Aérea</label>
-                 <select id="aerolinea" required>
-                       <option value="" disabled selected>Seleccione una aerolínea...</option>
-                       <option value="AS">Alaska Airlines Inc.</option>
-                       <option value="G4">Allegiant Air</option>
-                       <option value="AA">American Airlines Inc.</option>
-                       <option value="DL">Delta Air Lines Inc.</option>
-                       <option value="9E">Endeavor Air Inc.</option>
-                       <option value="MQ">Envoy Air</option>
-                       <option value="EV">ExpressJet Airlines LLC</option>
-                       <option value="F9">Frontier Airlines Inc.</option>
-                       <option value="HA">Hawaiian Airlines Inc.</option>
-                       <option value="QX">Horizon Air</option>
-                       <option value="B6">JetBlue Airways</option>
-                       <option value="YV">Mesa Airlines Inc.</option>
-                       <option value="OH">PSA Airlines Inc.</option>
-                       <option value="YX">Republic Airline</option>
-                       <option value="OO">SkyWest Airlines Inc.</option>
-                       <option value="WN">Southwest Airlines Co.</option>
-                       <option value="NK">Spirit Air Lines</option>
-                       <option value="UA">United Air Lines Inc.</option>
-                     </select>
-                    </div>
+                <select id="aerolinea" required>
+                        <option value="" disabled selected>Seleccione una aerolínea...</option>
+                        <option value="Alaska Airlines Inc.">Alaska Airlines Inc.</option>
+                        <option value="Allegiant Air">Allegiant Air</option>
+                        <option value="American Airlines Inc.">American Airlines Inc.</option>
+                        <option value="Delta Air Lines Inc.">Delta Air Lines Inc.</option>
+                        <option value="Endeavor Air Inc.">Endeavor Air Inc.</option>
+                        <option value="Envoy Air">Envoy Air</option>
+                        <option value="ExpressJet Airlines LLC d/b/a aha!">ExpressJet Airlines LLC</option>
+                        <option value="Frontier Airlines Inc.">Frontier Airlines Inc.</option>
+                        <option value="Hawaiian Airlines Inc.">Hawaiian Airlines Inc.</option>
+                        <option value="Horizon Air">Horizon Air</option>
+                        <option value="JetBlue Airways">JetBlue Airways</option>
+                        <option value="Mesa Airlines Inc.">Mesa Airlines Inc.</option>
+                        <option value="PSA Airlines Inc.">PSA Airlines Inc.</option>
+                        <option value="Republic Airline">Republic Airline</option>
+                        <option value="SkyWest Airlines Inc.">SkyWest Airlines Inc.</option>
+                        <option value="Southwest Airlines Co.">Southwest Airlines Co.</option>
+                        <option value="Spirit Air Lines">Spirit Air Lines</option>
+                        <option value="United Air Lines Inc.">United Air Lines Inc.</option>
+                    </select>
 
                     <div class="input-grid">
                         <div class="form-group">
@@ -75,6 +74,12 @@
                     <div class="form-group">
                         <label>Distancia del Trayecto (millas)</label>
                         <input type="number" id="distancia" placeholder="Ej: 2475" required>
+                    </div>
+                    <div class="form-group">
+                        <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+                            <input type="checkbox" id="cascading" style="width:20px; height:20px; cursor:pointer;"> 
+                            ¿Vuelo anterior retrasado?
+                        </label>
                     </div>
 
                     <button type="submit" class="btn-action" id="btnAnalizar">Ejecutar Análisis</button>
